@@ -1,4 +1,4 @@
-# K-Band FMCW Radar
+# (actually K)-Band FMCW Radar
 
 A frequency-modulated continuous-wave (FMCW) radar front-end designed in KiCad —
 a single-board transceiver intended for **ground-based ranging and weather /
