@@ -1,5 +1,33 @@
 # Changelog
 
+## Rev D — 2026-07-09
+
+SPI level-domain fix (found in pre-layout review; ADF4159 DS Rev E, Table 4).
+
+### Problem
+FT2232H drove ADF4159 CLK/DATA/LE/CE/TXDATA at 3.3 V logic, but the ADF4159
+digital absolute maximum is DVDD + 0.3 V = 2.1 V — a 5-pin abs-max violation.
+MUXOUT readback (1.8 V logic into a 3.3 V-referenced input) was marginal in
+the reverse direction.
+
+### Changed (zero new part types)
+- **U7 pin 20 (VCCIO, ADBUS bank)** `+3V3_DIG` → `+1V8`. The ADBUS SPI bank now
+  runs at 1.8 V natively (FT2232H VCCIO spec: 1.62–3.63 V, per FTDI AN_146).
+  Other VCCIO banks (pins 31/42/56) stay at 3.3 V — EEPROM interface unchanged.
+- **U8 pin 9 (ADS8353 DVDD)** `+3V3_RF` → `+1V8` (DVDD spec 1.65–3.6 V). The ADC
+  shares the ADBUS SPI bus, so its I/O follows the 1.8 V domain — and this
+  removes ADC digital switching noise from the RF/analog 3.3 V rail (C12
+  decoupler rides along).
+- **R22 (MUXOUT pull-up)** `+3V3_DIG` → `+1V8`. Open-drain MUXOUT plan from
+  Rev B still applies, now pulling to the correct domain.
+- **C55 100 nF** added on `+1V8` — local decoupling for the re-domained VCCIO
+  bank (+1V8 previously had only C5/C22/C45 near U5/U2).
+
+Verified by netlist regression (exact 5-pin expected transform, nothing else
+moved) and ERC (identical message set before/after). +1V8 load additions are
+~10–20 mA against TPS7A2018 headroom.
+
+
 ## Rev C — 2026-07-02
 
 Functional-gap pass: every block needed for a working board (except antenna

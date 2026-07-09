@@ -12025,7 +12025,7 @@
 			)
 		)
 	)
-	(global_label "+3V3_DIG"
+	(global_label "+1V8"
 		(shape input)
 		(at 217.17 34.29 0)
 		(fields_autoplaced yes)
@@ -12608,7 +12608,7 @@
 			)
 		)
 	)
-	(global_label "+3V3_DIG"
+	(global_label "+1V8"
 		(shape input)
 		(at 373.38 227.33 90)
 		(fields_autoplaced yes)
@@ -14927,7 +14927,7 @@
 			)
 		)
 	)
-	(global_label "+3V3_RF"
+	(global_label "+1V8"
 		(shape input)
 		(at 100.33 185.42 270)
 		(fields_autoplaced yes)
@@ -27561,10 +27561,96 @@
 			)
 		)
 	)
-	(sheet_instances
+(symbol
+		(lib_id "Device:C_Small_US")
+		(at 381 222.25 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0f598e22-4826-4c4f-88a4-452774487fa5")
+		(property "Reference" "C55"
+			(at 381 226.06 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100nF"
+			(at 381 228.6 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 381 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 381 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 381 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "81301bda-81b9-4175-85b0-c6814442d1fa")
+		)
+		(pin "2"
+			(uuid "6d5ff3d8-c8df-4ffd-89a7-e122b4a2fa90")
+		)
+		(instances
+			(project "Radar1"
+				(path "/813c6d5a-f49c-4157-a259-eb6b4a93e133"
+					(reference "C55")
+					(unit 1)
+				)
+			)
+		)
+	)	(sheet_instances
 		(path "/"
 			(page "1")
 		)
+	)
+	(global_label "+1V8"
+		(shape input)
+		(at 378.46 222.25 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "690a7559-ce03-476c-af5e-aac2e959c71c")
+	)
+	(global_label "GND"
+		(shape input)
+		(at 383.54 222.25 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "cea15bd4-6623-477f-aa60-b895cb27a411")
 	)
 	(embedded_fonts no)
 )
