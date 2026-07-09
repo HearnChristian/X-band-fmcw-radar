@@ -1,5 +1,28 @@
 # Changelog
 
+## Board bring-up — 2026-07-09
+
+`Radar1.kicad_pcb` generated (text-built from netlist + `docs/PCB-PLAN.md`
+floorplan; generator in `tools/board_gen.py`):
+
+- **4-layer hybrid stackup** defined: F.Cu / RO4350B 0.254 mm (εr 3.48,
+  tanδ 0.0037) / In1.Cu GND / FR4 0.9 mm / In2.Cu PWR / FR4 0.2 mm / B.Cu,
+  ENIG finish, 1.545 mm total. All 24 GHz returns reference In1.Cu directly
+  under the Rogers layer.
+- **Board 60 × 42 mm**, outline + title silk. All 99 components placed:
+  ICs/connectors at floorplan coordinates (RF west, PLL center, digital east,
+  power south), passives auto-packed beside their owner ICs (netlist-driven
+  ownership, bbox collision packing).
+- **Net classes**: RF (0.5 mm track) for ANT_TX/ANT_RX/RF_TX, PWR (0.4 mm),
+  Default clearance 0.15 mm (vendor fine-pitch QFNs have 0.175 mm pad gaps).
+- **DRC: zero placement violations.** Remaining: 293 unconnected (unrouted —
+  next phase) and 10 copper-edge items on J3/J4, expected by design: the
+  Amphenol edge-launch pads intentionally overlap the board edge (standard
+  waiver; the placeholder SMAs get real 2.92 mm launches before fab).
+- Render: `docs/board-placement-top.png`.
+
+Next: GCPW RF routing (w 0.50 / gap 0.25 mm + via fences), power pours, SPI.
+
 ## Footprint pass — 2026-07-09
 
 Every IC/connector footprint is now assigned and resolvable; layout is unblocked.
