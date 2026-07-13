@@ -12176,7 +12176,7 @@
 			)
 		)
 	)
-	(global_label "LF_B"
+	(global_label "LF_A"
 		(shape input)
 		(at 309.88 166.37 180)
 		(fields_autoplaced yes)
@@ -14967,7 +14967,7 @@
 				)
 			)
 		)
-		(property "Value" "470pF"
+		(property "Value" "270pF"
 			(at 316.23 153.543 90)
 			(effects
 				(font
@@ -16467,7 +16467,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "270R"
 			(at 316.23 184.15 90)
 			(effects
 				(font
@@ -23268,7 +23268,7 @@
 				)
 			)
 		)
-		(property "Value" "2.2k"
+		(property "Value" "560R"
 			(at 316.23 163.83 90)
 			(effects
 				(font
@@ -25998,7 +25998,7 @@
 				)
 			)
 		)
-		(property "Value" "10nF"
+		(property "Value" "15nF"
 			(at 316.23 173.863 90)
 			(effects
 				(font
@@ -27250,7 +27250,7 @@
 				)
 			)
 		)
-		(property "Value" "1nF"
+		(property "Value" "910pF"
 			(at 316.23 194.183 90)
 			(effects
 				(font

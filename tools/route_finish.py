@@ -212,7 +212,7 @@ _pgc_orig = pad_goal_cells
 def pad_goal_cells_exact(px, py, rect, lay, code, hw, tht):
     out = _pgc_orig(px, py, rect, lay, code, hw, tht)
     if out: return out
-    if _geo is None: _build_geo()
+    _build_geo()          # always fresh
     ax0, ay0 = cell(rect[0], rect[1]); ax1, ay1 = cell(rect[2], rect[3])
     sx = min(0.09, (rect[2]-rect[0]) * 0.25)
     sy = min(0.09, (rect[3]-rect[1]) * 0.25)
@@ -231,7 +231,7 @@ pad_goal_cells = pad_goal_cells_exact
 
 def approach_cells(members, code, hw):
     """map-blocked cells near the stray that a hw track may legally use."""
-    if _geo is None: _build_geo()
+    _build_geo()          # always fresh: mid-run emissions must be seen
     out = set()
     for kind, g in members:
         if kind != "pad": continue

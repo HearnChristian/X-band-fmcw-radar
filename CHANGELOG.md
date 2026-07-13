@@ -148,3 +148,11 @@ Datasheet-verification pass over the fully wired schematic (ERC 50 → 11).
 Initial full wiring: 8 → 58 connected nets, 43 components added. Regulators,
 TCXO reference, PLL loop filter + DIV_OUT feedback, TX → AMM-8211, IF stage,
 SPI/USB/EEPROM, ADP5600 → −VGG gate bias.
+
+## Rev-E (2026-07-13)
+
+- PLL loop filter redesigned from datasheet parameters (docs/PLL-LOOP-FILTER.md):
+  topology fix (R4 input moved from R3/C18 junction to CPOUT — the captured
+  ladder had no stabilizing zero and could not lock), values 910pF/270R/15nF/
+  560R/270pF for fc=146kHz, PM=52deg at Kvco typ, Icp 2.5mA.
+- Board updated surgically: R4.1 re-netted, LF_A/LF_B rerouted, values synced.
